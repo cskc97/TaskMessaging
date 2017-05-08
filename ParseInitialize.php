@@ -99,6 +99,8 @@ class ParseInitialize
 
         }
 
+        echo print_r($array);
+
         if(isset($array))
         {
             return $array;

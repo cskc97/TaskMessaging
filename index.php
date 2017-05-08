@@ -23,13 +23,16 @@ $password = $array[1];
 
 $messageSend = $pUser->retrieveTasks($email,$password);
 
-$pUser->logout();
+
 
 $response = new Twiml();
 
 $response->message($messageSend);
 
 print($response);
+
+
+$pUser->logout();
 
 
 
