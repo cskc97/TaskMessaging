@@ -10,7 +10,7 @@ require_once "vendor/autoload.php";
 use Twilio\Twiml;
 
 $response = new Twiml();
-$response->say("Hello World");
+$response->message("Hello World");
 print $response;
 
 header("content-type: text/xml");
