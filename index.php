@@ -13,7 +13,7 @@ use Twilio\Twiml;
 
 $pUser = new ParseInitialize();
 
-$body = $_GET["Body"];
+$body = $_POST["Body"];
 
 
 
@@ -23,19 +23,22 @@ $email = $array[0];
 $password = $array[1];
 
 
+/*
 echo $email;
 echo "</br>";
 
 echo $password;
 
+*/
+
 
 
 
 $messageSend = $pUser->retrieveTasks($email,$password);
-echo $messageSend;
+//echo $messageSend;
 
 
-/*
+
 
 $response = new Twiml();
 
@@ -46,7 +49,7 @@ print($response);
 
 $pUser->logout();
 
-*/
+
 
 
 

@@ -53,7 +53,7 @@ class ParseInitialize
         }
         catch(ParseException $exception)
         {
-            echo $exception->getMessage();
+         //   echo $exception->getMessage();
             return false;
         }
 
