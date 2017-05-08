@@ -16,6 +16,6 @@ print $response;
 header("content-type: text/xml");
 
 
-echo $response;
+
 
 ?>
