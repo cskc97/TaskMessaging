@@ -11,8 +11,10 @@ use Twilio\Twiml;
 
 $response = new Twiml();
 $response->say("Hello World");
+print $response;
 
 header("content-type: text/xml");
+
 
 echo $response;
 
