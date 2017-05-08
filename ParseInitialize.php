@@ -101,7 +101,7 @@ class ParseInitialize
 
         }
 
-        echo print_r($array);
+    //    echo print_r($array);
 
         if(isset($array))
         {
