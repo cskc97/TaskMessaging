@@ -22,6 +22,9 @@ $array = explode(',',$body);
 $email = $array[0];
 $password = $array[1];
 
+ trim($email, '"');
+ trim($password,'""');
+
 
 /*
 echo $email;
