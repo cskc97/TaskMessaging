@@ -23,6 +23,12 @@ $email = $array[0];
 $password = $array[1];
 
 
+echo $email;
+echo "</br>";
+
+echo $password;
+
+
 
 
 $messageSend = $pUser->retrieveTasks($email,$password);
