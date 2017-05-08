@@ -15,17 +15,17 @@ $pUser = new ParseInitialize();
 
 $body = $_POST["Body"];
 
-echo $body;
+
 
 $array = explode(',',$body);
 
 $email = $array[0];
 $password = $array[1];
 
-echo $email."<br>".$password;
 
 
-//$messageSend = $pUser->retrieveTasks($email,$password);
+
+$messageSend = $pUser->retrieveTasks($email,$password);
 
 
 
