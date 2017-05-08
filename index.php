@@ -6,7 +6,7 @@
  * Time: 7:18 PM
  */
 
-header("content-type: text/xml");
+//header("content-type: text/xml");
 require_once "vendor/autoload.php";
 require_once "ParseInitialize.php";
 use Twilio\Twiml;
@@ -25,6 +25,8 @@ $messageSend = $pUser->retrieveTasks($email,$password);
 
 
 
+/*
+
 $response = new Twiml();
 
 $response->message($messageSend);
@@ -33,6 +35,8 @@ print($response);
 
 
 $pUser->logout();
+
+*/
 
 
 
