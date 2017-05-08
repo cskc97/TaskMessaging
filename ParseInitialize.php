@@ -24,6 +24,8 @@ class ParseInitialize
 {
     private $APP_ID,$MASTER_KEY,$MONGODB_URI,$PARSE_MOUNT
     ,$SERVER_URL;
+
+    private $currentUser;
     public function ParseInitialize()
     {
         $this->init();
@@ -62,9 +64,9 @@ class ParseInitialize
 
         if($this->loginUser($email,$password))
         {
-           $currentUser = ParseUser::getCurrentUser();
+           $this->currentUser = ParseUser::getCurrentUser();
 
-           $allTasks = $this->findTasks($currentUser);
+           $allTasks = $this->findTasks($this->currentUser);
 
            if($allTasks!=null)
            {
@@ -105,6 +107,12 @@ class ParseInitialize
             return null;
         }
 
+
+    }
+
+    public function logout()
+    {
+        ParseUser::logOut();
 
     }
 
