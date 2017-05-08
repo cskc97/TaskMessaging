@@ -35,14 +35,15 @@ echo $password;
 
 
 $messageSend = $pUser->retrieveTasks($email,$password);
-//echo $messageSend;
+echo $messageSend;
 
 
 
 
 $response = new Twiml();
 
-$response->message($messageSend);
+$messageValue = $response->message();
+$messageValue->body($messageSend);
 
 
 print($response);
