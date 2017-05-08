@@ -13,7 +13,7 @@ use Twilio\Twiml;
 
 $pUser = new ParseInitialize();
 
-$body = $_POST["Body"];
+$body = $_GET["Body"];
 
 
 
