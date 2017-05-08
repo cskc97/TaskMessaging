@@ -80,6 +80,11 @@ class ParseInitialize
            }
 
         }
+        else{
+
+            echo "Soomething did not work";
+
+        }
 
 
 
