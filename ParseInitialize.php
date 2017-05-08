@@ -6,6 +6,20 @@
  * Date: 5/8/2017
  * Time: 7:51 PM
  */
+
+require_once ('vendor/autoload.php');
+use Parse\ParseClient;
+use Parse\ParseObject;
+use Parse\ParseQuery;
+use Parse\ParseACL;
+use Parse\ParsePush;
+use Parse\ParseUser;
+use Parse\ParseInstallation;
+use Parse\ParseException;
+use Parse\ParseAnalytics;
+use Parse\ParseFile;
+use Parse\ParseCloud;
+
 class ParseInitialize
 {
     private $APP_ID,$MASTER_KEY,$MONGODB_URI,$PARSE_MOUNT
@@ -22,47 +36,14 @@ class ParseInitialize
 
     }
 
-    /**
-     * @return string
-     */
-    public function getAPPID()
+    private function init()
     {
-        return $this->APP_ID;
+        ParseClient::initialize($this->APP_ID,null,$this->MASTER_KEY);
+        ParseClient::setServerURL($this->SERVER_URL,'parse');
+
+
+
     }
-
-    /**
-     * @return string
-     */
-    public function getMASTERKEY()
-    {
-        return $this->MASTER_KEY;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMONGODBURI()
-    {
-        return $this->MONGODB_URI;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPARSEMOUNT()
-    {
-        return $this->PARSE_MOUNT;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSERVERURL()
-    {
-        return $this->SERVER_URL;
-    }
-
-
 
 
 }
