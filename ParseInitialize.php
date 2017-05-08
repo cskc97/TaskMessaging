@@ -26,24 +26,90 @@ class ParseInitialize
     ,$SERVER_URL;
     public function ParseInitialize()
     {
+        $this->init();
+
+    }
+
+    private function init()
+    {
         $this->APP_ID = "testappcskc";
         $this->MASTER_KEY="CSkc@5797";
         $this->MONGODB_URI="mongodb://heroku_1smrw9ch:18kallj4vprgrsppe4ksjf94nu@ds117919.mlab.com:17919/heroku_1smrw9ch";
         $this->PARSE_MOUNT="/parse";
         $this->SERVER_URL="http://testparsecskc.herokuapp.com/parse";
 
-
-
-    }
-
-    private function init()
-    {
         ParseClient::initialize($this->APP_ID,null,$this->MASTER_KEY);
         ParseClient::setServerURL($this->SERVER_URL,'parse');
 
+    }
+
+    private function loginUser($email,$password)
+    {
+        try {
+            $user = ParseUser::logIn($email, $password);
+            return true;
+        }
+        catch(ParseException $exception)
+        {
+            return false;
+        }
 
 
     }
+
+    public function retrieveTasks($email,$password)
+    {
+
+        if($this->loginUser($email,$password))
+        {
+           $currentUser = ParseUser::getCurrentUser();
+
+           $allTasks = $this->findTasks($currentUser);
+
+           if($allTasks!=null)
+           {
+               $tasksString = implode(',',$allTasks);
+               return $tasksString;
+           }
+           else{
+               $string = "You Don't Have Any Tasks. Check if you have entered your 
+               email and password properly";
+               return $string;
+           }
+
+        }
+
+
+
+    }
+
+    private function findTasks(ParseUser $currentUser)
+    {
+        $query = new ParseQuery("Tasks");
+        $query->equalTo("user",$currentUser->getEmail());
+        $results = $query->find();
+
+        $array = array();
+
+        for($counter=0;$counter<count($results);$counter++)
+        {
+            $array[] = $results[$counter]->get("task");
+
+        }
+
+        if(isset($array))
+        {
+            return $array;
+        }
+        else{
+            return null;
+        }
+
+
+    }
+
+
+
 
 
 }
