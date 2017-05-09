@@ -35,7 +35,7 @@ class ParseInitialize
     private function init()
     {
         $this->APP_ID = "testappcskc";
-        $this->MASTER_KEY="mymasterkey";
+        $this->MASTER_KEY="CSkc@5797";
         $this->MONGODB_URI="mongodb://heroku_1smrw9ch:18kallj4vprgrsppe4ksjf94nu@ds117919.mlab.com:17919/heroku_1smrw9ch";
         $this->PARSE_MOUNT="/parse";
         $this->SERVER_URL="http://testparsecskc.herokuapp.com";
